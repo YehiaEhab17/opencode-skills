@@ -1,0 +1,9 @@
+# Core: MarkItDown with all format support
+markitdown[all]>=0.1.2
+
+# Plugin: OCR for scanned PDFs and embedded images
+markitdown-ocr
+
+# Plugin: Math equation support (OMML→LaTeX for PPTX, PDF math/vector detection)
+# Installed as editable from the sibling markitdown-math directory
+-e ../markitdown-math

@@ -1,0 +1,64 @@
+% ============================================================
+%  COVER PAGE — Business Proposal / Professional Report
+%  Features: double-line border, institution logo, dual-column
+%  author/instructor layout, optional secondary logo beside title.
+%  Requires: eso-pic, tikz, graphicx, geometry
+%
+%  Usage in main.tex:
+%    \begin{titlepage}
+%    \input{assets/coverpages/business-proposal.tex}
+%    \end{titlepage}
+% ============================================================
+
+\AddToShipoutPictureBG*{\BackgroundBorder}
+\centering
+\vspace*{0.2cm}
+
+% --- Institution logo ---
+\includegraphics[width=0.35\textwidth]{[[INSTITUTION_LOGO_PATH]]}\\[0.5cm]
+
+% --- Department / College ---
+{\Large\textbf{\color{primary}[[DEPARTMENT_OR_COLLEGE]]}}\\[0.5cm]
+
+% --- Course or project info ---
+{\large [[COURSE_OR_PROJECT]]}\\[0.2cm]
+{\large [[DATE_OR_SEMESTER]]}\\[0.5cm]
+
+% --- Decorative rule ---
+\rule{\linewidth}{1pt}\\[0.6cm]
+
+% --- Title area: text left, logo right (optional) ---
+\centering
+\begin{minipage}{0.65\textwidth}
+	\centering
+	{\Huge \textbf{\color{primary}[[REPORT_TITLE_LINE_1]]\\[0.3cm] [[REPORT_TITLE_LINE_2]]}}
+\end{minipage}%
+\hspace{0.5cm}%
+\begin{minipage}{0.25\textwidth}
+	\centering
+	\includegraphics[width=\linewidth]{[[SECONDARY_LOGO_PATH]]}
+\end{minipage}\\[0.6cm]
+
+\rule{\linewidth}{1pt}\\[1.2cm]
+
+% --- Author and instructor columns ---
+\begin{minipage}{0.45\textwidth}
+	\begin{flushleft} \large
+		\emph{Prepared by:}\\
+		[[AUTHOR_1]]\\
+		[[AUTHOR_2]]\\
+		[[AUTHOR_3]]\\
+		[[AUTHOR_4]]
+	\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\begin{flushright} \large
+		\emph{Submitted to:} \\
+		[[INSTRUCTOR_NAME]]\\
+		[[ADDITIONAL_INFO]]
+	\end{flushright}
+\end{minipage}
+
+\vfill
+{\large \today}

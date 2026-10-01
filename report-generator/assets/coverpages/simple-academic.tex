@@ -1,0 +1,49 @@
+% ============================================================
+%  COVER PAGE — Simple Academic / Case Study
+%  A clean, minimal cover page with a single logo, title block,
+%  and a compact author table. No decorative border, no secondary
+%  logo. Suitable for academic papers, case studies, and reports
+%  where simplicity is preferred.
+%
+%  Usage in main.tex:
+%    \begin{titlepage}
+%    \input{assets/coverpages/simple-academic.tex}
+%    \end{titlepage}
+% ============================================================
+
+\centering
+\vspace*{2cm}
+
+% --- Optional logo ---
+\includegraphics[width=0.3\textwidth]{[[LOGO_PATH]]}\\[1.5cm]
+
+% --- Title ---
+\rule{\linewidth}{1pt}\\[0.8cm]
+{\Huge \textbf{\color{primary}[[REPORT_TITLE]]}}\\[0.3cm]
+{\Large [[REPORT_SUBTITLE]]}\\[0.8cm]
+\rule{\linewidth}{1pt}\\[1.5cm]
+
+% --- Metadata ---
+{\large [[COURSE_OR_PROJECT]]}\\[0.3cm]
+{\large [[DATE_OR_SEMESTER]]}\\[1.5cm]
+
+% --- Authors as a compact table ---
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} l l @{}}
+	\toprule
+	\textbf{Name} & \textbf{ID} \\
+	\midrule
+	[[AUTHOR_1]]  & [[ID_1]]    \\
+	[[AUTHOR_2]]  & [[ID_2]]    \\
+	[[AUTHOR_3]]  & [[ID_3]]    \\
+	[[AUTHOR_4]]  & [[ID_4]]    \\
+	\bottomrule
+\end{tabular}
+
+\vspace{1.5cm}
+
+% --- Instructor ---
+{\large \textbf{Instructor:} [[INSTRUCTOR_NAME]]}\\[0.5cm]
+
+\vfill
+{\large \today}

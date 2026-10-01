@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "markitdown-math"
+version = "0.1.0"
+description = "MarkItDown plugin adding OMML→LaTeX math for PPTX and enhanced PDF math/vector detection"
+requires-python = ">=3.10"
+dependencies = [
+    "markitdown>=0.1.0",
+    "python-pptx>=0.6.23",
+    "PyMuPDF>=1.24.0",
+    "docxlatex>=1.2.0",
+    "lxml>=5.0.0",
+    "Pillow>=10.0.0",
+]
+
+[project.entry-points."markitdown.plugin"]
+markitdown-math = "markitdown_math"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/markitdown_math"]

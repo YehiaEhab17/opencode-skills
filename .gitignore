@@ -1,0 +1,34 @@
+# Whitelist gitignore: ignore everything, then explicitly allow skill sources.
+
+# 1. Ignore everything
+*
+
+# 2. Re-include directories so git can traverse into them
+!*/
+
+# 3. Track repo-level files
+!.gitignore
+!README.md
+
+# generating-revision-notes
+!generating-revision-notes/SKILL.md
+
+# marp-presentation-creator
+!marp-presentation-creator/SKILL.md
+!marp-presentation-creator/references/commands.md
+!marp-presentation-creator/references/components/README.md
+!marp-presentation-creator/references/components/scripts/generate-previews.sh
+!marp-presentation-creator/references/components/*/preview.md
+
+# report-generator
+!report-generator/SKILL.md
+!report-generator/assets/template.tex
+!report-generator/assets/coverpages/*.tex
+
+# parsing-documents
+!parsing-documents/SKILL.md
+!parsing-documents/scripts/convert_legacy.sh
+!parsing-documents/scripts/requirements.txt
+!parsing-documents/scripts/test_setup.py
+!parsing-documents/markitdown-math/pyproject.toml
+!parsing-documents/markitdown-math/src/markitdown_math/*.py

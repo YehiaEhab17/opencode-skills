@@ -1,0 +1,194 @@
+% ============================================================
+%  REPORT TEMPLATE — Professional LaTeX Document
+%  Base: Palatino font, 1.35 spacing, parskip, dotted TOC
+%  Customise the [[PLACEHOLDER]] values below
+% ============================================================
+\documentclass[12pt, a4paper]{article}
+
+% ----- FONTS & TYPOGRAPHY -----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}          % Palatino — clean, professional
+\usepackage{microtype}         % Kerning and spacing refinement
+\usepackage{setspace}
+\setstretch{1.35}              % Comfortable readability
+\usepackage{parskip}           % No indents, vertical space between paragraphs
+
+% ----- PAGE GEOMETRY -----
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=1in,
+    right=1in,
+    top=1.2in,
+    bottom=1.2in
+}
+
+% ----- COLOURS -----
+\usepackage{xcolor}
+\definecolor{primary}{RGB}{0, 51, 102}     % Professional dark blue
+\definecolor{secondary}{RGB}{70, 70, 70}   % Dark grey for subtle text
+
+% ----- COVER PAGE BORDER (optional — remove if not wanted) -----
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usetikzlibrary{calc}
+\newcommand\BackgroundBorder{
+\begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=2pt, color=primary]
+        ($(current page.south west) + (1.5cm, 1.5cm)$)
+        rectangle
+        ($(current page.north east) + (-1.5cm, -1.5cm)$);
+    \draw[line width=0.5pt, color=primary]
+        ($(current page.south west) + (1.6cm, 1.6cm)$)
+        rectangle
+        ($(current page.north east) + (-1.6cm, -1.6cm)$);
+\end{tikzpicture}
+}
+
+% ----- GRAPHICS & TABLES -----
+\usepackage{graphicx}
+\usepackage{float}             % [H] placement for figures
+\usepackage{booktabs}          % Professional table rules
+\usepackage[justification=centering]{caption}
+
+% ----- HEADINGS -----
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}  % Each section starts on a new page
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{primary}}{\thesection}{1em}{}[\vspace{0.2em}\titlerule]
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{primary}}{\thesubsection}{1em}{}
+
+% ----- HEADERS & FOOTERS -----
+\usepackage{fancyhdr}
+\setlength{\headheight}{25pt}
+
+% Dotted leaders in the Table of Contents
+\makeatletter
+\renewcommand\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\normalfont\leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill\nobreak\hb@xt@\@pnumwidth{\hss\bfseries #2}\par
+    \endgroup
+  \fi}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{primary}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\color{secondary}\small [[TOP_LEFT_HEADER]]}
+\fancyhead[R]{\color{secondary}\small [[TOP_RIGHT_HEADER]]}
+\fancyfoot[C]{\thepage}
+
+% ----- HYPERLINKS -----
+\usepackage[colorlinks=true, linkcolor=primary, urlcolor=black, citecolor=primary, linktoc=all]{hyperref}
+
+% ----- LISTS -----
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=0.3em, topsep=0.3em}
+
+% ----- CODE LISTINGS (optional — uncomment if code is needed) -----
+% \usepackage{listings}
+% \definecolor{codegreen}{rgb}{0,0.5,0}
+% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+% \definecolor{codepurple}{rgb}{0.58,0,0.82}
+% \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
+% \lstset{
+%     backgroundcolor=\color{backcolour},
+%     commentstyle=\color{codegreen}\itshape,
+%     keywordstyle=\color{primary}\bfseries,
+%     numberstyle=\tiny\color{codegray},
+%     stringstyle=\color{codepurple},
+%     basicstyle=\ttfamily\footnotesize,
+%     breakatwhitespace=false,
+%     breaklines=true,
+%     captionpos=b,
+%     keepspaces=true,
+%     numbers=left,
+%     numbersep=10pt,
+%     showspaces=false,
+%     showstringspaces=false,
+%     showtabs=false,
+%     tabsize=4
+% }
+
+% ============================================================
+\begin{document}
+
+% ----- COVER PAGE -----
+% Choose from assets/coverpages/ for pre-designed options:
+%   - business-proposal.tex (dual-column, two logos, border)
+%   - simple-academic.tex (minimal, single logo, clean)
+% Replace the block below with \input{assets/coverpages/your-choice.tex}
+\begin{titlepage}
+	\AddToShipoutPictureBG*{\BackgroundBorder}
+	\centering
+	\vspace*{1.5cm}
+
+	% Optional logo — uncomment and adjust path
+	% \includegraphics[width=0.4\textwidth]{images/logo.png}\\[0.5cm]
+
+	{\Large\textbf{\color{primary}[[ORGANISATION]]}}\\[0.5cm]
+	{\large [[SUBTITLE_OR_COURSE]]}\\[0.2cm]
+	{\large [[DATE_OR_SEMESTER]]}\\[0.5cm]
+
+	\rule{\linewidth}{1pt}\\[0.6cm]
+	\begin{minipage}{0.9\textwidth}
+		\centering
+		{\Huge \textbf{\color{primary}[[REPORT_TITLE]]}}
+	\end{minipage}\\[0.6cm]
+	\rule{\linewidth}{1pt}\\[1.5cm]
+
+	{\large \textbf{Prepared by:}}\\[0.3cm]
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushleft} \large
+			[[AUTHOR_1]]\\
+			[[AUTHOR_2]]\\
+			[[AUTHOR_3]]\\
+		\end{flushleft}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushright} \large
+			[[ID_1]]\\
+			[[ID_2]]\\
+			[[ID_3]]\\
+		\end{flushright}
+	\end{minipage}
+
+	\vspace{1.5cm}
+	{\large \textbf{Submitted to:}}\\[0.3cm]
+	{\Large [[INSTRUCTOR_OR_MANAGER]]}\\[0.5cm]
+
+	\vfill
+	{\large \today}
+\end{titlepage}
+
+% ----- TABLE OF CONTENTS -----
+\newpage
+{\Large \renewcommand{\contentsname}{\centering \color{primary} Table of Contents} \tableofcontents}
+\newpage
+
+% ----- SECTIONS (modular — each in its own file) -----
+% \section{Introduction}
+% \input{sections/01_introduction}
+
+% \section{Main Body}
+% \input{sections/02_body}
+
+% \section*{References}
+% \input{sections/03_references}
+
+\end{document}
